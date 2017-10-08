@@ -16,7 +16,7 @@ public class DataSetImpl {
 
         /* Name,Location,Extension,Email,Title,Department,Dept ID */
         DataSet<Tuple7<String, String, Integer, String, String, String, Integer>> csvInput
-                = env.readCsvFile("/Users/cwang/Flink/pipelines/directory.csv")
+                = env.readCsvFile("/Users/Cheryl/git/SL_Flink/directory.csv")
                 .ignoreFirstLine()
                 .parseQuotedStrings('"')
                 .types(String.class, String.class, Integer.class, String.class, String.class,String.class, Integer.class);
@@ -46,10 +46,10 @@ public class DataSetImpl {
                 .partitionByRange(0);
 
 
-        output0.writeAsCsv("/Users/cwang/Flink/pipelines/target/ds0.csv",   //Only a Tuple DataSet can written as a CSV file
+        output0.writeAsCsv("/Users/Cheryl/git/SL_Flink/target/ds0.csv",   //Only a Tuple DataSet can written as a CSV file
                 "\n", "|", OVERWRITE).setParallelism(1);    //for one file: set the parallelism for the sink
-        output1.writeAsCsv("/Users/cwang/Flink/pipelines/target/ds1.csv",
-                "\n", "|", OVERWRITE).setParallelism(1);
+//        output1.writeAsCsv("/Users/cwang/Flink/pipelines/target/ds1.csv",
+//                "\n", "|", OVERWRITE).setParallelism(1);
 
 
         try {
