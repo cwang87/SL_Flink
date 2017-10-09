@@ -1,5 +1,6 @@
-{
-  "Albert Maro": {
+[
+  {
+    "Name": "Albert Maro",
     "Location": "Field",
     "Extension": 4357,
     "Email": "amaro@company.com",
@@ -7,7 +8,8 @@
     "Department": "Sales",
     "Dept ID": 1100
   },
-  "Anthony Dunn": {
+  {
+    "Name": "Anthony Dunn",
     "Location": "HQ",
     "Extension": 4387,
     "Email": "adunn@company.com",
@@ -15,7 +17,8 @@
     "Department": "Marketing",
     "Dept ID": 1200
   },
-  "Rich Harris": {
+  {
+    "Name": "Rich Harris",
     "Location": "CO",
     "Extension": 4368,
     "Email": "rharris@company.com",
@@ -23,7 +26,8 @@
     "Department": "Engineering",
     "Dept ID": 1300
   },
-  "Glen Neal": {
+  {
+    "Name": "Glen Neal",
     "Location": "HQ",
     "Extension": 4398,
     "Email": "gneal@company.com",
@@ -31,7 +35,8 @@
     "Department": "Operations",
     "Dept ID": 1400
   },
-  "Kristine Arnold": {
+  {
+    "Name": "Kristine Arnold",
     "Location": "Field",
     "Extension": 4352,
     "Email": "karnold@company.com",
@@ -39,7 +44,8 @@
     "Department": "Sales",
     "Dept ID": 1100
   },
-  "Tim Salazaar": {
+  {
+    "Name": "Tim Salazaar",
     "Location": "HQ",
     "Extension": 4367,
     "Email": "tsalazaar@company.com",
@@ -47,7 +53,8 @@
     "Department": "Marketing",
     "Dept ID": 1200
   },
-  "Belina Joseph": {
+  {
+    "Name": "Belina Joseph",
     "Location": "CO",
     "Extension": 4311,
     "Email": "bjoseph@company.com",
@@ -55,7 +62,8 @@
     "Department": "Engineering",
     "Dept ID": 1300
   },
-  "Emilio Welch": {
+  {
+    "Name": "Emilio Welch",
     "Location": "HQ",
     "Extension": 4389,
     "Email": "ewelch@company.com",
@@ -63,7 +71,8 @@
     "Department": "Operations",
     "Dept ID": 1400
   },
-  "Garrett Reeves": {
+  {
+    "Name": "Garrett Reeves",
     "Location": "Field",
     "Extension": 4326,
     "Email": "greeves@company.com",
@@ -71,7 +80,8 @@
     "Department": "Sales",
     "Dept ID": 1100
   },
-  "Gayle Fleming": {
+  {
+    "Name": "Gayle Fleming",
     "Location": "HQ",
     "Extension": 4334,
     "Email": "gfleming@company.com",
@@ -79,7 +89,8 @@
     "Department": "Marketing",
     "Dept ID": 1200
   },
-  "Elijah Burke": {
+  {
+    "Name": "Elijah Burke",
     "Location": "CO",
     "Extension": 4333,
     "Email": "eburke@company.com",
@@ -87,7 +98,8 @@
     "Department": "Engineering",
     "Dept ID": 1300
   },
-  "Karthik Patel": {
+  {
+    "Name": "Karthik Patel",
     "Location": "HQ",
     "Extension": 4398,
     "Email": "kpatel@company.com",
@@ -95,7 +107,8 @@
     "Department": "Operations",
     "Dept ID": 1400
   },
-  "Laxman Sharma": {
+  {
+    "Name": "Laxman Sharma",
     "Location": "HQ",
     "Extension": 4309,
     "Email": "lsharma@company.com",
@@ -103,7 +116,8 @@
     "Department": "Sales",
     "Dept ID": 1100
   },
-  "Kamal Mullur": {
+  {
+    "Name": "Kamal Mullur",
     "Location": "HQ",
     "Extension": 4390,
     "Email": "kmullur@company.com",
@@ -111,4 +125,4 @@
     "Department": "Marketing",
     "Dept ID": 1200
   }
-}
+]
