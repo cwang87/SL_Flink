@@ -21,19 +21,19 @@ public class POJOMapImpl {
 
     public static class POJOMap {
 
-        public Map<String, Object> record = new HashMap<>();
+        public Map<String, Object> object = new HashMap<>();
 
         public POJOMap() {
         }
 
-        public POJOMap(Map<String, Object> record) {
-            this.record = record;
+        public POJOMap(Map<String, Object> object) {
+            this.object = object;
         }
     }
 
     public static void main(String[] args) throws IOException {
 
-        File csvFile = new File("/Users/cwang/Flink/SL_Flink/directory.json");
+        File csvFile = new File("/Users/cwang/Flinkol/SL_Flink/directory.json");
         ObjectMapper mapper = new ObjectMapper();
 
         //Get List<Map<String, Object>>
@@ -51,7 +51,7 @@ public class POJOMapImpl {
         DataSet<POJOMap> output0 = pojoMapDataSet.filter(new FilterFunction<POJOMap>() {
             @Override
             public boolean filter(POJOMap pojoMap) throws Exception {
-                return pojoMap.record.get("Department").equals("Sales") && pojoMap.record.get("Location").equals("Field");
+                return pojoMap.object.get("Department").equals("Sales") && pojoMap.object.get("Location").equals("Field");
             }
         });
 
@@ -59,7 +59,7 @@ public class POJOMapImpl {
         output0.sortPartition(new KeySelector<POJOMap, String>() {
             @Override
             public String getKey(POJOMap pojoMap) throws Exception {
-                return (String) pojoMap.record.get("Name");
+                return (String) pojoMap.object.get("Name");
             }
         }, Order.DESCENDING);
 
@@ -68,7 +68,7 @@ public class POJOMapImpl {
                 new TextOutputFormat.TextFormatter<POJOMap>() {
                     @Override
                     public String format(POJOMap pojoMap) {
-                        Map<String, Object> record = pojoMap.record;
+                        Map<String, Object> record = pojoMap.object;
                         return record.get("Name") + "|"
                                 + record.get("Location") + "|"
                                 + record.get("Extension") + "|"
