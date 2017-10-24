@@ -1,0 +1,128 @@
+[
+  {
+    "Name": "Albert Maro",
+    "Location": "Field",
+    "Extension": 4357,
+    "Email": "amaro@company.com",
+    "Title": "Director, Eastern US",
+    "Department": "Sales",
+    "Dept ID": 1100
+  },
+  {
+    "Name": "Anthony Dunn",
+    "Location": "HQ",
+    "Extension": 4387,
+    "Email": "adunn@company.com",
+    "Title": "Social Media Director",
+    "Department": "Marketing",
+    "Dept ID": 1200
+  },
+  {
+    "Name": "Rich Harris",
+    "Location": "CO",
+    "Extension": 4368,
+    "Email": "rharris@company.com",
+    "Title": "Principal Developer",
+    "Department": "Engineering",
+    "Dept ID": 1300
+  },
+  {
+    "Name": "Glen Neal",
+    "Location": "HQ",
+    "Extension": 4398,
+    "Email": "gneal@company.com",
+    "Title": "HR Admin",
+    "Department": "Operations",
+    "Dept ID": 1400
+  },
+  {
+    "Name": "Kristine Arnold",
+    "Location": "Field",
+    "Extension": 4352,
+    "Email": "karnold@company.com",
+    "Title": "Field Rep",
+    "Department": "Sales",
+    "Dept ID": 1100
+  },
+  {
+    "Name": "Tim Salazaar",
+    "Location": "HQ",
+    "Extension": 4367,
+    "Email": "tsalazaar@company.com",
+    "Title": "Website Admin",
+    "Department": "Marketing",
+    "Dept ID": 1200
+  },
+  {
+    "Name": "Belina Joseph",
+    "Location": "CO",
+    "Extension": 4311,
+    "Email": "bjoseph@company.com",
+    "Title": "Developer",
+    "Department": "Engineering",
+    "Dept ID": 1300
+  },
+  {
+    "Name": "Emilio Welch",
+    "Location": "HQ",
+    "Extension": 4389,
+    "Email": "ewelch@company.com",
+    "Title": "Helpdesk Administrator",
+    "Department": "Operations",
+    "Dept ID": 1400
+  },
+  {
+    "Name": "Garrett Reeves",
+    "Location": "Field",
+    "Extension": 4326,
+    "Email": "greeves@company.com",
+    "Title": "Field Rep",
+    "Department": "Sales",
+    "Dept ID": 1100
+  },
+  {
+    "Name": "Gayle Fleming",
+    "Location": "HQ",
+    "Extension": 4334,
+    "Email": "gfleming@company.com",
+    "Title": "Intern",
+    "Department": "Marketing",
+    "Dept ID": 1200
+  },
+  {
+    "Name": "Elijah Burke",
+    "Location": "CO",
+    "Extension": 4333,
+    "Email": "eburke@company.com",
+    "Title": "Lead Developer",
+    "Department": "Engineering",
+    "Dept ID": 1300
+  },
+  {
+    "Name": "Karthik Patel",
+    "Location": "HQ",
+    "Extension": 4398,
+    "Email": "kpatel@company.com",
+    "Title": "Facilities",
+    "Department": "Operations",
+    "Dept ID": 1400
+  },
+  {
+    "Name": "Laxman Sharma",
+    "Location": "HQ",
+    "Extension": 4309,
+    "Email": "lsharma@company.com",
+    "Title": "VP, Sales",
+    "Department": "Sales",
+    "Dept ID": 1100
+  },
+  {
+    "Name": "Kamal Mullur",
+    "Location": "HQ",
+    "Extension": 4390,
+    "Email": "kmullur@company.com",
+    "Title": "Manager",
+    "Department": "Marketing",
+    "Dept ID": 1200
+  }
+]

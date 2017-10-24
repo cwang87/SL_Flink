@@ -8,9 +8,12 @@ import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.io.TextOutputFormat;
+import org.apache.flink.api.java.operators.DataSource;
+import scala.collection.JavaConverters;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,19 +32,34 @@ public class POJOMapImpl {
         public POJOMap(Map<String, Object> object) {
             this.object = object;
         }
+
+        public Map<String, Object> getObject() {
+            return object;
+        }
+
+        public void setObject(Map<String, Object> object) {
+            this.object = object;
+        }
     }
 
     public static void main(String[] args) throws IOException {
 
-        File csvFile = new File("/Users/cwang/Flinkol/SL_Flink/directory.json");
+        File csvFile = new File("test/directory.json");
         ObjectMapper mapper = new ObjectMapper();
 
         //Get List<Map<String, Object>>
         List<Map<String, Object>> entries = mapper.readValue(csvFile, List.class);
+        List<scala.collection.mutable.Map<String, Object> > scalaEntries = new ArrayList<>();
+        for (Map<String, Object> entry : entries) {
+            scala.collection.mutable.Map<String, Object> scalaMap = JavaConverters.mapAsScalaMapConverter(entry).asScala();
+            scalaEntries.add(scalaMap);
+        }
 
         final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-        DataSet<POJOMap> pojoMapDataSet = env.fromCollection(entries).map(new MapFunction<Map<String, Object>, POJOMap>() {
+        DataSource<Map<String, Object>> csvDataSource = env.fromCollection(entries);
+
+        DataSet<POJOMap> pojoMapDataSet = csvDataSource.map(new MapFunction<Map<String, Object>, POJOMap>() {
             @Override
             public POJOMap map(Map<String, Object> stringObjectMap) throws Exception {
                 return new POJOMap(stringObjectMap);
