@@ -1,4 +1,4 @@
-package experiments;
+package quickstart;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.flink.api.common.functions.FilterFunction;
@@ -9,11 +9,9 @@ import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.io.TextOutputFormat;
 import org.apache.flink.api.java.operators.DataSource;
-import scala.collection.JavaConverters;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,16 +42,11 @@ public class POJOMapImpl {
 
     public static void main(String[] args) throws IOException {
 
-        File csvFile = new File("test/directory.json");
+        File csvFile = new File("/Users/cwang/Flink/SL_Flink/test/directory.json");
         ObjectMapper mapper = new ObjectMapper();
 
         //Get List<Map<String, Object>>
         List<Map<String, Object>> entries = mapper.readValue(csvFile, List.class);
-        List<scala.collection.mutable.Map<String, Object> > scalaEntries = new ArrayList<>();
-        for (Map<String, Object> entry : entries) {
-            scala.collection.mutable.Map<String, Object> scalaMap = JavaConverters.mapAsScalaMapConverter(entry).asScala();
-            scalaEntries.add(scalaMap);
-        }
 
         final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
@@ -99,7 +92,8 @@ public class POJOMapImpl {
         ).setParallelism(1);
 
         try {
-            env.execute();
+            System.out.print(env.getExecutionPlan());
+//            env.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }

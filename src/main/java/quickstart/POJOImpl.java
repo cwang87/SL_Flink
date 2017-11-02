@@ -111,20 +111,20 @@ public class POJOImpl {
 
 
 
-        DataSet<Record> output0 = csvInput.filter(new FilterFunction<Record>() {
+        DataSet<Record> filtered = csvInput.filter(new FilterFunction<Record>() {
             @Override
             public boolean filter(Record record) throws Exception {
                 return record.getDepartment().equals("Sales") && record.getLocation().equals("Field");
             }
-        })
-                .sortPartition("name", Order.ASCENDING)
-                .partitionByRange("name");
+        });
+
+        DataSet<Record> sorted = filtered.sortPartition("name", Order.ASCENDING).setParallelism(1);
 
 
 
         //Write elements line-wise as Strings.
         // The Strings are obtained by calling a user-defined format() method for each element.
-        output0.writeAsFormattedText("/Users/cwang/Flink/SL_Flink/pojo0.csv", OVERWRITE,
+        sorted.writeAsFormattedText("/Users/cwang/Flink/SL_Flink/pojo0.csv", OVERWRITE,
                 new TextOutputFormat.TextFormatter<Record>() {
                     @Override
                     public String format(Record record) {
