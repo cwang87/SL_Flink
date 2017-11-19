@@ -1,28 +1,20 @@
-package quickstart;
+package impls;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.flink.api.common.ExecutionConfig;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.operators.Order;
 import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
-import org.apache.flink.api.common.typeutils.TypeSerializer;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.functions.KeySelector;
-import org.apache.flink.api.java.io.RowCsvInputFormat;
 import org.apache.flink.api.java.io.TextOutputFormat;
-import org.apache.flink.api.java.operators.DataSource;
 import org.apache.flink.api.java.typeutils.RowTypeInfo;
-import org.apache.flink.table.plan.nodes.dataset.DataSetIntersect;
-import org.apache.flink.table.plan.schema.TableSourceTable;
 import org.apache.flink.table.sources.CsvTableSource;
-import org.apache.flink.table.sources.TableSource;
 import org.apache.flink.types.Row;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +29,8 @@ public class RowTypeImpl {
         /**
          *  Get List<Map<String, Object>>
          */
-        File csvFile = new File("/Users/cwang/Flink/SL_Flink/test/directory.json");
+        String filepath = "/Users/cwang/Flink/SL_Flink/test/directory.json";
+        File csvFile = new File(filepath);
         ObjectMapper mapper = new ObjectMapper();
         List<Map<String, Object>> entries = mapper.readValue(csvFile, List.class);
 
@@ -58,15 +51,24 @@ public class RowTypeImpl {
          */
         final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-        /* Parse Type information */
+         /* Parse Type information */
         String fieldTypesStr = "string, string, int, string, string, string, int";
         TypeInformation<?>[] fieldTypes = getFieldTypes(size, fieldTypesStr);
         TypeInformation<Row> typeInfo = new RowTypeInfo(fieldTypes, fieldnames);
 
+        /**
+         * From file source
+         */
+        CsvTableSource csvTableSource = new CsvTableSource("/Users/cwang/Flink/SL_Flink/directory.csv", fieldnames, fieldTypes);
+        DataSet<Row> typedRows = csvTableSource.getDataSet(env);
+
+        /**
+         * From map
+         */
         DataSet<Map<String, Object>> mapDataSet = env.fromCollection(entries);
         DataSet<Row> rowDataSet = mapDataSet.map(new Map2Row());
         List<Row> rows = rowDataSet.collect();
-        DataSet<Row> typedRows = env.fromCollection(rows, typeInfo);
+//        DataSet<Row> typedRows = env.fromCollection(rows, typeInfo);
 
         DataSet<Row> output = typedRows.filter(new FilterFunction<Row>() {
             @Override

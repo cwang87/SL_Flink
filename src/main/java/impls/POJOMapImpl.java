@@ -1,4 +1,4 @@
-package quickstart;
+package impls;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.flink.api.common.functions.FilterFunction;

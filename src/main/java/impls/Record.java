@@ -1,5 +1,9 @@
-package quickstart;
+package impls;
 
+/**
+ * This is the POJO (Plain Old Java Object) that is being used for all the operations.
+ * As long as all fields are public or have a getter/setter, the system can handle them.
+ */
 public class Record {
     //fields: Name,Location,Extension,Email,Title,Department,Dept ID
     private String name;

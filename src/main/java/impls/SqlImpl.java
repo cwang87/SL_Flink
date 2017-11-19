@@ -1,4 +1,4 @@
-package quickstart;
+package impls;
 
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.core.fs.FileSystem;
