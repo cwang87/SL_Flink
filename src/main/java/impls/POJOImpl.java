@@ -21,7 +21,7 @@ public class POJOImpl {
 
         ClientFilter filter = new ClientFilter();
         DataSet<Record> filtered = csvInput.filter(filter);
-        DataSet<Record> sorted = filtered.sortPartition("name", Order.ASCENDING).setParallelism(1);
+        DataSet<Record> sorted = filtered.partitionByRange("name").sortPartition("name", Order.ASCENDING);
 
         //Write elements line-wise as Strings.
         // The Strings are obtained by calling a user-defined format() method for each element.
