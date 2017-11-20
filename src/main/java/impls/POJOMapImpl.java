@@ -92,8 +92,8 @@ public class POJOMapImpl {
         ).setParallelism(1);
 
         try {
-            System.out.print(env.getExecutionPlan());
-//            env.execute();
+//            System.out.print(env.getExecutionPlan());
+            env.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
